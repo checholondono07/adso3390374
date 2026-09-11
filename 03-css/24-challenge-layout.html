@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>24-Challenge Layout</title>
+    <title>Reto 24 | Versión Personal</title>
     <style>
-        body.reto {
+        :root {
+            --verde-base: #149548;
+            --verde-oscuro: #0e5a2c;
+            --verde-hover: #082615;
+            --dorado: #ffd700;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            background-color: #149548;
-            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+        }
+
+        body.reto {
+            background: var(--verde-base);
+            font-family: 'Trebuchet MS', 'Lucida Sans', sans-serif;
+            color: #222;
         }
 
         .sprite {
@@ -16,224 +29,237 @@
             background-repeat: no-repeat;
         }
 
-        header {
+        /* ===== TOP ===== */
+        .top {
             text-align: center;
             padding: 3rem 1rem 2rem;
         }
 
-        header .logo {
+        .top .brand {
             width: 235px;
             height: 209px;
             background-position: -5px -5px;
             margin: 0 auto 2rem;
         }
 
-        header nav {
+        .top .main-nav {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 1rem;
         }
 
-        header nav a {
+        .top .main-nav a {
             display: block;
-            background-color: #11542b;
+            background: var(--verde-oscuro);
             color: #fff;
             text-decoration: none;
             text-transform: uppercase;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 0.9rem;
+            letter-spacing: 1px;
             padding: 1rem 2rem;
             border-bottom: 4px solid #fff;
+            transition: all 0.25s ease;
         }
 
-        header nav a:hover {
-            background-color: #091c10;
-            border-bottom-color: gold;
+        .top .main-nav a:hover {
+            background: var(--verde-hover);
+            border-bottom-color: var(--dorado);
+            transform: translateY(-2px);
         }
 
-        .portafolio {
+        /* ===== SHOWCASE ===== */
+        .showcase {
             display: flex;
             gap: 1.3rem;
             max-width: 1100px;
             margin: 2rem auto;
             padding: 1.3rem;
-            background-color: #11542b;
+            background: var(--verde-oscuro);
         }
 
-        .portafolio .tarjeta {
+        .showcase .card {
             position: relative;
             flex: 1;
             height: 222px;
             border: 2px solid #fff;
             overflow: hidden;
+            cursor: pointer;
         }
 
-        .portafolio .tarjeta .sprite {
+        .showcase .card .sprite {
             width: 100%;
             height: 100%;
             background-position: -465px 0;
         }
 
-        .portafolio .tarjeta h3 {
+        .showcase .card .caption {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            margin: 0;
             padding: 1.6rem 0;
             text-align: center;
             color: #000;
-            background-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.5);
+            font-size: 1.05rem;
         }
 
-        .portafolio .tarjeta:hover h3 {
-            background-color: rgba(255, 255, 255, 0.8);
+        .showcase .card:hover .caption {
+            background: rgba(255, 255, 255, 0.8);
         }
 
-        .contenido {
+        /* ===== ARTICLES ===== */
+        .articles {
             display: flex;
             flex-direction: column;
             gap: 0.6rem;
             max-width: 1100px;
             margin: 2rem auto;
             padding: 0.6rem;
-            background-color: #11542b;
+            background: var(--verde-oscuro);
         }
 
-        .contenido .fila {
+        .articles .row {
             display: flex;
             align-items: center;
             gap: 2rem;
             padding: 1.5rem 2rem;
-            background-color: #fff;
+            background: #fff;
         }
 
-        .contenido .fila .icono {
+        .articles .row .badge {
             width: 86px;
             height: 95px;
             flex-shrink: 0;
             background-position: -299px -493px;
         }
 
-        .contenido .fila p {
+        .articles .row .desc {
             flex: 1;
-            margin: 0;
             color: #333;
             line-height: 1.7;
             text-align: justify;
+            font-size: 0.95rem;
         }
 
-        .contenido .fila:hover p {
+        .articles .row:hover .desc {
             color: #1e7d3c;
         }
 
-        .contenido .fila .lata {
+        .articles .row .can {
             width: 90px;
             height: 157px;
             flex-shrink: 0;
             background-position: -95px -213px;
         }
 
-        footer {
+        /* ===== BOTTOM ===== */
+        .bottom {
             max-width: 1100px;
             margin: 2rem auto;
             padding: 2rem;
             text-align: center;
-            background-color: #fff;
+            background: #fff;
         }
 
-        footer .familia {
+        .bottom .family {
             width: 335px;
             height: 182px;
             margin: 0 auto 1.5rem;
             background-position: -465px -418px;
         }
 
-        footer nav {
+        .bottom .foot-nav {
             display: flex;
             justify-content: space-between;
             padding-top: 1rem;
         }
 
-        footer nav a {
+        .bottom .foot-nav a {
             color: #333;
             text-decoration: none;
             text-transform: uppercase;
-            font-weight: bold;
+            font-weight: 700;
             padding-bottom: 0.5rem;
             border-bottom: 3px solid transparent;
+            transition: border-color 0.2s;
         }
 
-        footer nav a:hover {
-            border-bottom-color: #149548;
+        .bottom .foot-nav a:hover {
+            border-bottom-color: var(--verde-base);
         }
     </style>
 </head>
 <body class="reto">
-    <header>
-        <div class="logo sprite"></div>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Nosotros</a>
-            <a href="#">Portafolio</a>
-            <a href="#">Servicios</a>
-            <a href="#">Contacto</a>
+
+    <header class="top">
+        <div class="brand sprite"></div>
+        <nav class="main-nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Work</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
         </nav>
     </header>
 
-    <section class="portafolio">
-        <div class="tarjeta">
-            <h3>Sprite 01</h3>
-            <div class="sprite"></div>
-        </div>
-        <div class="tarjeta">
-            <h3>Sprite 02</h3>
-            <div class="sprite"></div>
-        </div>
-        <div class="tarjeta">
-            <h3>Sprite 03</h3>
-            <div class="sprite"></div>
-        </div>
-    </section>
+    <main>
+        <section class="showcase">
+            <article class="card">
+                <h3 class="caption">Sprite 01</h3>
+                <div class="sprite"></div>
+            </article>
+            <article class="card">
+                <h3 class="caption">Sprite 02</h3>
+                <div class="sprite"></div>
+            </article>
+            <article class="card">
+                <h3 class="caption">Sprite 03</h3>
+                <div class="sprite"></div>
+            </article>
+        </section>
 
-    <section class="contenido">
-        <div class="fila">
-            <div class="icono sprite"></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
-            <div class="lata sprite"></div>
-        </div>
-        <div class="fila">
-            <div class="icono sprite"></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
-            <div class="lata sprite"></div>
-        </div>
-        <div class="fila">
-            <div class="icono sprite"></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
-            <div class="lata sprite"></div>
-        </div>
-        <div class="fila">
-            <div class="icono sprite"></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
-            <div class="lata sprite"></div>
-        </div>
-        <div class="fila">
-            <div class="icono sprite"></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
-            <div class="lata sprite"></div>
-        </div>
-    </section>
+        <section class="articles">
+            <div class="row">
+                <div class="badge sprite"></div>
+                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
+                <div class="can sprite"></div>
+            </div>
+            <div class="row">
+                <div class="badge sprite"></div>
+                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
+                <div class="can sprite"></div>
+            </div>
+            <div class="row">
+                <div class="badge sprite"></div>
+                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
+                <div class="can sprite"></div>
+            </div>
+            <div class="row">
+                <div class="badge sprite"></div>
+                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
+                <div class="can sprite"></div>
+            </div>
+            <div class="row">
+                <div class="badge sprite"></div>
+                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
+                <div class="can sprite"></div>
+            </div>
+        </section>
+    </main>
 
-    <footer>
-        <div class="familia sprite"></div>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Nosotros</a>
-            <a href="#">Portafolio</a>
-            <a href="#">Servicios</a>
-            <a href="#">Contacto</a>
+    <footer class="bottom">
+        <div class="family sprite"></div>
+        <nav class="foot-nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Work</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
         </nav>
     </footer>
+
 </body>
 </html>
