@@ -3,263 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reto 24 | Versión Personal</title>
+    <title>Reto 24 - Diseño Personal</title>
     <style>
-        :root {
-            --verde-base: #149548;
-            --verde-oscuro: #0e5a2c;
-            --verde-hover: #082615;
-            --dorado: #ffd700;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body.reto {
-            background: var(--verde-base);
-            font-family: 'Trebuchet MS', 'Lucida Sans', sans-serif;
-            color: #222;
+            background-color: #149548;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        .sprite {
+        /* Clase base para todos los sprites (antes .sprite) */
+        .img-sprite {
             background-image: url(../src/img/spriteweb.png);
             background-repeat: no-repeat;
         }
 
-        /* ===== TOP ===== */
-        .top {
+        /* ===== HEADER ===== */
+        header {
             text-align: center;
             padding: 3rem 1rem 2rem;
         }
 
-        .top .brand {
+        /* Antes .logo */
+        header .marca-principal {
             width: 235px;
             height: 209px;
             background-position: -5px -5px;
             margin: 0 auto 2rem;
         }
 
-        .top .main-nav {
+        header nav {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 1rem;
         }
 
-        .top .main-nav a {
+        header nav a {
             display: block;
-            background: var(--verde-oscuro);
+            background-color: #11542b;
             color: #fff;
             text-decoration: none;
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: bold;
             font-size: 0.9rem;
-            letter-spacing: 1px;
             padding: 1rem 2rem;
             border-bottom: 4px solid #fff;
-            transition: all 0.25s ease;
         }
 
-        .top .main-nav a:hover {
-            background: var(--verde-hover);
-            border-bottom-color: var(--dorado);
-            transform: translateY(-2px);
+        header nav a:hover {
+            background-color: #091c10;
+            border-bottom-color: gold;
         }
 
-        /* ===== SHOWCASE ===== */
-        .showcase {
+        /* ===== SECCIÓN PORTAFOLIO ===== */
+        .portafolio {
             display: flex;
             gap: 1.3rem;
             max-width: 1100px;
             margin: 2rem auto;
             padding: 1.3rem;
-            background: var(--verde-oscuro);
+            background-color: #11542b;
         }
 
-        .showcase .card {
+        /* Antes .tarjeta */
+        .portafolio .caja-producto {
             position: relative;
             flex: 1;
             height: 222px;
             border: 2px solid #fff;
             overflow: hidden;
-            cursor: pointer;
         }
 
-        .showcase .card .sprite {
+        .portafolio .caja-producto .img-sprite {
             width: 100%;
             height: 100%;
             background-position: -465px 0;
         }
 
-        .showcase .card .caption {
+        .portafolio .caja-producto h3 {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
+            margin: 0;
             padding: 1.6rem 0;
             text-align: center;
             color: #000;
-            background: rgba(255, 255, 255, 0.5);
-            font-size: 1.05rem;
+            background-color: rgba(255, 255, 255, 0.5);
         }
 
-        .showcase .card:hover .caption {
-            background: rgba(255, 255, 255, 0.8);
+        .portafolio .caja-producto:hover h3 {
+            background-color: rgba(255, 255, 255, 0.8);
         }
 
-        /* ===== ARTICLES ===== */
-        .articles {
+        /* ===== SECCIÓN CONTENIDO ===== */
+        .contenido {
             display: flex;
             flex-direction: column;
             gap: 0.6rem;
             max-width: 1100px;
             margin: 2rem auto;
             padding: 0.6rem;
-            background: var(--verde-oscuro);
+            background-color: #11542b;
         }
 
-        .articles .row {
+        .contenido .fila {
             display: flex;
             align-items: center;
             gap: 2rem;
             padding: 1.5rem 2rem;
-            background: #fff;
+            background-color: #fff;
         }
 
-        .articles .row .badge {
+        /* Antes .icono */
+        .contenido .fila .simbolo {
             width: 86px;
             height: 95px;
             flex-shrink: 0;
             background-position: -299px -493px;
         }
 
-        .articles .row .desc {
+        .contenido .fila p {
             flex: 1;
+            margin: 0;
             color: #333;
             line-height: 1.7;
             text-align: justify;
-            font-size: 0.95rem;
         }
 
-        .articles .row:hover .desc {
+        .contenido .fila:hover p {
             color: #1e7d3c;
         }
 
-        .articles .row .can {
+        /* Antes .lata */
+        .contenido .fila .envase {
             width: 90px;
             height: 157px;
             flex-shrink: 0;
             background-position: -95px -213px;
         }
 
-        /* ===== BOTTOM ===== */
-        .bottom {
+        /* ===== FOOTER ===== */
+        footer {
             max-width: 1100px;
             margin: 2rem auto;
             padding: 2rem;
             text-align: center;
-            background: #fff;
+            background-color: #fff;
         }
 
-        .bottom .family {
+        /* Antes .familia */
+        footer .grupo-familiar {
             width: 335px;
             height: 182px;
             margin: 0 auto 1.5rem;
             background-position: -465px -418px;
         }
 
-        .bottom .foot-nav {
+        footer nav {
             display: flex;
             justify-content: space-between;
             padding-top: 1rem;
         }
 
-        .bottom .foot-nav a {
+        footer nav a {
             color: #333;
             text-decoration: none;
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: bold;
             padding-bottom: 0.5rem;
             border-bottom: 3px solid transparent;
-            transition: border-color 0.2s;
         }
 
-        .bottom .foot-nav a:hover {
-            border-bottom-color: var(--verde-base);
+        footer nav a:hover {
+            border-bottom-color: #149548;
         }
     </style>
 </head>
 <body class="reto">
-
-    <header class="top">
-        <div class="brand sprite"></div>
-        <nav class="main-nav">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Work</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
+    <header>
+        <div class="marca-principal img-sprite"></div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Portafolio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Contacto</a>
         </nav>
     </header>
 
-    <main>
-        <section class="showcase">
-            <article class="card">
-                <h3 class="caption">Sprite 01</h3>
-                <div class="sprite"></div>
-            </article>
-            <article class="card">
-                <h3 class="caption">Sprite 02</h3>
-                <div class="sprite"></div>
-            </article>
-            <article class="card">
-                <h3 class="caption">Sprite 03</h3>
-                <div class="sprite"></div>
-            </article>
-        </section>
+    <section class="portafolio">
+        <div class="caja-producto">
+            <h3>Sprite 01</h3>
+            <div class="img-sprite"></div>
+        </div>
+        <div class="caja-producto">
+            <h3>Sprite 02</h3>
+            <div class="img-sprite"></div>
+        </div>
+        <div class="caja-producto">
+            <h3>Sprite 03</h3>
+            <div class="img-sprite"></div>
+        </div>
+    </section>
 
-        <section class="articles">
-            <div class="row">
-                <div class="badge sprite"></div>
-                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
-                <div class="can sprite"></div>
-            </div>
-            <div class="row">
-                <div class="badge sprite"></div>
-                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
-                <div class="can sprite"></div>
-            </div>
-            <div class="row">
-                <div class="badge sprite"></div>
-                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
-                <div class="can sprite"></div>
-            </div>
-            <div class="row">
-                <div class="badge sprite"></div>
-                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
-                <div class="can sprite"></div>
-            </div>
-            <div class="row">
-                <div class="badge sprite"></div>
-                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
-                <div class="can sprite"></div>
-            </div>
-        </section>
-    </main>
+    <section class="contenido">
+        <div class="fila">
+            <div class="simbolo img-sprite"></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
+            <div class="envase img-sprite"></div>
+        </div>
+        <div class="fila">
+            <div class="simbolo img-sprite"></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
+            <div class="envase img-sprite"></div>
+        </div>
+        <div class="fila">
+            <div class="simbolo img-sprite"></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
+            <div class="envase img-sprite"></div>
+        </div>
+        <div class="fila">
+            <div class="simbolo img-sprite"></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
+            <div class="envase img-sprite"></div>
+        </div>
+        <div class="fila">
+            <div class="simbolo img-sprite"></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.</p>
+            <div class="envase img-sprite"></div>
+        </div>
+    </section>
 
-    <footer class="bottom">
-        <div class="family sprite"></div>
-        <nav class="foot-nav">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Work</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
+    <footer>
+        <div class="grupo-familiar img-sprite"></div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Portafolio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Contacto</a>
         </nav>
     </footer>
-
 </body>
 </html>
