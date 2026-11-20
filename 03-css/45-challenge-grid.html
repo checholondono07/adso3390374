@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>44-Grid</title>
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 260px 260px 260px;
+            grid-gap: 10px;
+            min-height: 100vh;
+        }
+
+        .wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-sizing: border-box;
+        }
+
+        .img2 {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+
+        .img6 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        .wrapper2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 190px 190px 190px;
+            grid-gap: 10px;
+            min-height: 100vh;
+        }
+
+        .wrapper2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-sizing: border-box;
+        }
+
+        .foto1 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+
+        .foto4 {
+            grid-column-start: 3;
+            grid-column-end: 5;
+            grid-row-start: 2;
+            grid-row-end: 4;
+        }
+
+        .foto5 {
+            grid-column-start: 1;
+            grid-row-start: 3;
+        }
+
+        .foto6 {
+            grid-column-start: 2;
+            grid-row-start: 3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <img src="imgs/1.jpg">
+
+        <img class="img2" src="imgs/2.jpg">
+
+        <img src="imgs/3.jpg">
+
+        <img src="imgs/4.jpg">
+
+        <img src="imgs/5.jpg">
+
+        <img class="img6" src="imgs/6.jpg">
+
+        <img src="imgs/7.jpg">
+
+    </div>
+
+    <div class="wrapper2">
+
+        <img class="foto1" src="imgs/1.jpg">
+
+        <img src="imgs/8.jpg">
+
+        <img src="imgs/9.jpg">
+
+        <img class="foto4" src="imgs/10.jpg">
+
+        <img class="foto5" src="imgs/6.jpg">
+
+        <img class="foto6" src="imgs/7.jpg">
+
+    </div>
+
+</body>
+</html>
