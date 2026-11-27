@@ -24,11 +24,30 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $gender = fake()->randomElement(['Male', 'Female']);
+        $genderParam = ($gender === 'Female') ? 'female' : 'male';
+
+        $firstName = fake()->firstName($genderParam);
+        $lastName = fake()->lastName();
+        $fullname = "{$firstName} {$lastName}";
+
+        $emailUser = Str::slug($fullname, '.');
+        $email = fake()->unique()->numerify("{$emailUser}##@" . fake()->freeEmailDomain());
+
+        $photoPrefix = ($gender === 'Female') ? 'female_' : 'male_';
+        $photoNumber = fake()->numberBetween(1, 50);
+        $photo = "images/users/{$photoPrefix}{$photoNumber}.jpg";
+
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'document' => fake()->unique()->numerify('75######'),
+            'fullname' => $fullname,
+            'gender' => $gender,
+            'birthdate' => fake()->date('Y-m-d'),
+            'photo' => $photo,
+            'phone' => fake()->numerify('320#######'),
+            'email' => $email,
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
+            'password' => bcrypt('123456789'), // password
             'remember_token' => Str::random(10),
         ];
     }

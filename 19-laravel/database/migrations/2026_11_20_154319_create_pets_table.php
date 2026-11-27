@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('breed');
             $table->string('location');
             $table->string('description');
-            $table->boolean('s_active')->default(1);
+            $table->boolean('is_active')->default(1);
             $table->boolean('is_adopted')->default(0);
             $table->timestamps();
         });
